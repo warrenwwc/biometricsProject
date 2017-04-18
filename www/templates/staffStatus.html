@@ -1,0 +1,39 @@
+<ion-view title="Staff Status" id="page1">
+  <ion-content padding="true" class="has-header">
+    <h1 id="staffStatus-heading1" style="color:#000000;">Working</h1>
+    <ion-list id="staffStatus-list2" ng-repeat="(key, value) in staffs" ng-if="value.isWorking">
+      <div class="item item-body" id="staffStatus-list-item-container1">
+        <div id="staffStatus-markdown2" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <strong>ID: </strong> {{key}}
+          </p>
+        </div>
+        <div id="staffStatus-markdown7" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">
+            <strong>Name: </strong> {{value.sname}}
+          </p>
+        </div>
+        <div id="staffStatus-markdown20" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">
+            <strong>Working since</strong>
+          </p>
+        </div>
+      </div>
+    </ion-list>
+    <h1 id="staffStatus-heading2" style="color:#000000;">Off Work</h1>
+    <ion-list id="staffStatus-list4" ng-repeat="(key, value) in staffs" ng-if="!value.isWorking">
+      <div class="item item-body" id="staffStatus-list-item-container3">
+        <div id="staffStatus-markdown5" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <strong>ID: </strong> {{key}}
+          </p>
+        </div>
+        <div id="staffStatus-markdown9" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">
+            <strong>Name: </strong> {{value.sname}}
+          </p>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

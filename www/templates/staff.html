@@ -1,0 +1,31 @@
+<ion-view title="Staff" id="page4">
+  <ion-content padding="true" class="has-header">
+    <form id="staff-form1" class="list" ng-model="formData">
+      <ion-list id="staff-list7">
+        <label class="item item-input" id="staff-input1">
+          <span class="input-label">ID</span>
+          <input type="text" ng-model="sid">
+        </label>
+        <label class="item item-input" id="staff-input2">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="sname">
+        </label>
+        <label class="item item-select" id="staff-select1">
+          <span class="input-label">Department</span>
+          <select ng-model="sdept">
+            <option>IT</option>
+            <option>Sales</option>
+            <option>Acct</option>
+            <option>HR</option>
+          </select>
+        </label>
+        <label class="item item-input" id="staff-input4">
+          <span class="input-label">Hourly rate</span>
+          <input type="number" ng-model="salary" placeholder="">
+        </label>
+      </ion-list>
+      <button id="staff-button9" ng-click="UpdateStaff(sid, sname, sdept, salary)" class="button button-stable  button-block">Done</button>
+      <button id="staff-button10" ui-sref="menu.staffList" class="button button-stable  button-block">Back</button>
+    </form>
+  </ion-content>
+</ion-view>

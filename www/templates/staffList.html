@@ -1,0 +1,20 @@
+<ion-view title="Staff List" id="page2">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="staffList-list5" ng-repeat="(key, value) in staffList">
+      <div class="item item-body" id="staffList-list-item-container5">
+        <div id="staffList-markdown12" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <strong>Staff ID: </strong> {{key}}
+          </p>
+        </div>
+        <div id="staffList-markdown15" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">
+            <strong>Staff Name: </strong> {{value.sname}}
+          </p>
+        </div>
+        <button id="staffList-button5" ng-click="ChangeMode('manage', key, value)" ui-sref="staff" class="button button-stable  button-block">Manage</button>
+      </div>
+    </ion-list>
+    <button id="staffList-button4" ng-click="ChangeMode('create')" ui-sref="staff" class="button button-stable  button-block">Add Staff</button>
+  </ion-content>
+</ion-view>

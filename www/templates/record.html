@@ -1,0 +1,24 @@
+<ion-view title="Record" id="page3">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="record-list6" ng-repeat="(key, value) in staffs">
+      <div class="item item-body" id="record-list-item-container8">
+        <div id="record-markdown19" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <strong>ID: </strong> {{key}}
+          </p>
+        </div>
+        <div id="record-markdown23" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">
+            <strong>Name: </strong> {{value.sname}}
+          </p>
+        </div>
+        <div id="record-markdown27" class="show-list-numbers-and-dots">
+          <p style="color:#000000;">
+            <strong>Working hours: </strong> {{value.whours}}
+          </p>
+        </div>
+      </div>
+    </ion-list>
+    <button id="record-button8" class="button button-stable  button-block">Generate Record</button>
+  </ion-content>
+</ion-view>
