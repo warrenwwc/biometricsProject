@@ -97,7 +97,8 @@ function ($scope, $stateParams, $state, $rootScope) {
 				  "sdept": sdept,
 				  "salary": salary,
 				  "isWorking": false,
-				  "whours": 0
+				  "whours": 0,
+				  "last": Date()
 				});
 			}
 		}
