@@ -59,6 +59,22 @@ function ($scope, $stateParams) {
 		  $scope.$digest();
 		}
 	});
+    
+    $scope.GenReport = function() {
+        var ep=new ExcelPlus();
+        ep.createFile("Book1");
+        ep.write({ "content":[ ["Staff ID","Staff Name","Department", "Hourly Rate", "Working Hours", "Total"] ] });
+        count = 2;
+        for (i in $scope.staffs) {
+            ep.writeRow(count, [i, $scope.staffs[i].sname, $scope.staffs[i].sdept, $scope.staffs[i].salary, $scope.staffs[i].whours, $scope.staffs[i].salary*$scope.staffs[i].whours]);
+			firebase.database().ref('staffs/' + i).update({
+			  "whours": 0,
+			});
+            count++;
+        }
+
+        ep.saveAs("Report.xlsx");
+    }
 
 }])
    
