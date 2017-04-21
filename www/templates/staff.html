@@ -11,20 +11,14 @@
           <input type="text" ng-model="sname">
         </label>
         <label class="item item-select" id="staff-select1">
-          <span class="input-label">Department</span>
-          <select ng-model="sdept">
-            <option>IT</option>
-            <option>Sales</option>
-            <option>Acct</option>
-            <option>HR</option>
+          <span class="input-label">Post</span>
+          <select ng-model="post">
+            <option>Doctor</option>
+            <option>Nurse</option>
           </select>
         </label>
-        <label class="item item-input" id="staff-input4">
-          <span class="input-label">Hourly rate</span>
-          <input type="number" ng-model="salary" placeholder="">
-        </label>
       </ion-list>
-      <button id="staff-button9" ng-click="UpdateStaff(sid, sname, sdept, salary)" class="button button-stable  button-block">Done</button>
+      <button id="staff-button9" ng-click="UpdateStaff(sid, sname, post)" class="button button-stable  button-block">Done</button>
       <button id="staff-button10" ui-sref="menu.staffList" class="button button-stable  button-block">Back</button>
     </form>
   </ion-content>

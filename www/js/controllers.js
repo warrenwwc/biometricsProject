@@ -32,14 +32,12 @@ function ($scope, $stateParams, $state, $rootScope) {
 		if (mode == 'manage') {
 			$rootScope.sid = key;
 			$rootScope.sname = value.sname;
-			$rootScope.sdept = value.sdept;
-			$rootScope.salary = value.salary;
+			$rootScope.post = value.post;
 		}
 		else {
 			$rootScope.sid = "";
 			$rootScope.sname = "";
-			$rootScope.sdept = "";
-			$rootScope.salary = "";
+			$rootScope.post = "";
 		}
 
 	}
@@ -63,13 +61,13 @@ function ($scope, $stateParams) {
     $scope.GenReport = function() {
         var ep=new ExcelPlus();
         ep.createFile("Book1");
-        ep.write({ "content":[ ["Staff ID","Staff Name","Department", "Hourly Rate", "Working Hours", "Total"] ] });
+        ep.write({ "content":[ ["Staff ID","Staff Name","Post",  "Reading Minutes"] ] });
         count = 2;
         for (i in $scope.staffs) {
-            ep.writeRow(count, [i, $scope.staffs[i].sname, $scope.staffs[i].sdept, $scope.staffs[i].salary, $scope.staffs[i].whours, $scope.staffs[i].salary*$scope.staffs[i].whours]);
-			firebase.database().ref('staffs/' + i).update({
-			  "whours": 0,
-			});
+            ep.writeRow(count, [i, $scope.staffs[i].sname, $scope.staffs[i].post, $scope.staffs[i].whours]);
+//			firebase.database().ref('staffs/' + i).update({
+//			  "whours": 0,
+//			});
             count++;
         }
 
@@ -102,7 +100,7 @@ function ($scope, $stateParams, $state, $rootScope) {
 
 
 
-	$scope.UpdateStaff = function(sid, sname, sdept, salary) {
+	$scope.UpdateStaff = function(sid, sname, post) {
 		if ($rootScope.mode == 'create') {
 			if ($scope.sList.includes(sid)) {
 				alert("sid Existed");
@@ -110,8 +108,7 @@ function ($scope, $stateParams, $state, $rootScope) {
 			else {
 				firebase.database().ref('staffs/' + sid).set({
 				  "sname": sname,
-				  "sdept": sdept,
-				  "salary": salary,
+				  "post": post,
 				  "isWorking": false,
 				  "whours": 0,
 				  "last": Date()
@@ -121,8 +118,7 @@ function ($scope, $stateParams, $state, $rootScope) {
 		else if ($rootScope.mode == 'manage') {
 			firebase.database().ref('staffs/' + sid).update({
 			  "sname": sname,
-			  "sdept": sdept,
-			  "salary" : salary
+			  "post": post,
 			});
 		}
 		else {
