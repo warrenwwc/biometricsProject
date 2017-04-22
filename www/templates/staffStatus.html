@@ -21,7 +21,7 @@
       </div>
     </ion-list>
     <h1 id="staffStatus-heading2" style="color:#000000;">Not Reading</h1>
-    <ion-list id="staffStatus-list4" ng-repeat="(key, value) in staffs" ng-if="!value.isWorking">
+    <ion-list id="staffStatus-list4" ng-repeat="(key, value) in staffs" ng-if="!value.isWorking && value.access">
       <div class="item item-body" id="staffStatus-list-item-container3">
         <div id="staffStatus-markdown5" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
@@ -41,7 +41,7 @@
       </div>
     </ion-list>
     <h1 id="staffStatus-heading3" style="color:#000000;">Denied</h1>
-    <ion-list id="staffStatus-list5" ng-repeat="(key, value) in staffs" ng-if="!value.isWorking">
+    <ion-list id="staffStatus-list5" ng-repeat="(key, value) in staffs" ng-if="!value.isWorking && !value.access">
       <div class="item item-body" id="staffStatus-list-item-container3">
         <div id="staffStatus-markdown11" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
@@ -58,6 +58,7 @@
             <strong>Last Working Time: </strong> {{value.last}}
           </p>
         </div>
+        <button class="button button-stable  button-block" ng-click="Unlock(key)">Unlock</button>
       </div>
     </ion-list>
   </ion-content>

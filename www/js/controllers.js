@@ -11,6 +11,12 @@ function ($scope, $stateParams) {
 		  $scope.$digest();
 		}
 	});
+  
+    $scope.Unlock = function(sid) {
+      firebase.database().ref('staffs/' + sid).update({
+        "access": true
+      });
+    }
 
 
 }])
